@@ -27,7 +27,7 @@ func main() {
 	banner()
 
 	fileName := flag.String("f", "", "Azorult request file")
-	threats := flag.Int("t", 10, "Number of threats")
+	threads := flag.Int("t", 10, "Number of threads")
 	dump := flag.Bool("d", false, "Dump the request content once decrypted")
 	flag.Parse()
 
@@ -77,7 +77,7 @@ func main() {
 	progressBar.SetWidth(80)
 	progressBar.Start()
 
-	for i := 0; i < *threats; i++ {
+	for i := 0; i < *threads; i++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
